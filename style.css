@@ -1,123 +1,87 @@
+/* মোবাইল ফার্স্ট ডিজাইন */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #0f172a; /* Deep dark background */
-  color: #f8fafc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  background: #0f172a;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .glass-container {
-  width: 95%;
-  max-width: 1200px;
-  margin: 40px 0;
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 24px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px; /* মোবাইলের জন্য লিমিটেড উইডথ */
+  margin: 0 auto;
+  padding: 20px 15px;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-  margin-bottom: 30px;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 20px 0;
   background: linear-gradient(to right, #60a5fa, #c084fc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 800;
 }
 
-/* Upload Button Styling */
 .upload-section {
-  margin-bottom: 40px;
+  position: sticky; /* স্ক্রল করলেও বাটন উপরে থাকবে */
+  top: 10px;
+  z-index: 100;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .custom-upload-btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  padding: 15px 30px;
+  background: #4f46e5;
   color: white;
-  font-weight: 600;
-  border-radius: 16px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
 }
 
-.custom-upload-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.5);
-}
-
-/* Professional Gallery Grid (Masonry effect) */
+/* গ্যালারি লেআউট - মোবাইলে ১টি করে বড় ছবি দেখাবে */
 .gallery {
-  column-count: 3; /* পিসি বা ল্যাপটপে ৩ কলাম */
-  column-gap: 20px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
-/* মোবাইলের জন্য কলাম ঠিক করা */
-@media (max-width: 900px) { .gallery { column-count: 2; } }
-@media (max-width: 600px) { .gallery { column-count: 1; } }
 
 .media-container {
-  break-inside: avoid;
-  margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: 0.3s ease;
 }
 
-.media-container:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* ছবি এখন ফুল সাইজ দেখাবে এবং কাটবে না */
 .media-container img, 
 .media-container video {
   width: 100%;
-  height: auto; /* অটো হাইট যাতে ছবি না কাটে */
+  height: auto; /* অরিজিনাল সাইজ বজায় থাকবে */
+  border-radius: 15px;
   display: block;
-  border-radius: 14px;
-  margin-bottom: 12px;
 }
 
+/* বাটন গ্রুপ - বড় এবং ক্লিক করা সহজ */
 .btn-group {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .save-btn, .del-btn {
   flex: 1;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
   border: none;
-  transition: 0.2s;
+  cursor: pointer;
 }
 
-.save-btn {
-  background: #059669;
-  color: white;
-}
-
-.del-btn {
-  background: rgba(220, 38, 38, 0.2);
-  color: #ef4444;
-  border: 1px solid rgba(220, 38, 38, 0.5);
-}
-
-.save-btn:hover { background: #10b981; }
-.del-btn:hover { background: #dc2626; color: white; }
+.save-btn { background: #10b981; color: white; }
+.del-btn { background: #ef4444; color: white; }
